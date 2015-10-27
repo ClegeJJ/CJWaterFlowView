@@ -14,8 +14,8 @@ typedef enum {
     CJWaterFlowViewMarginTypeLeft,
     CJWaterFlowViewMarginTypeBottom,
     CJWaterFlowViewMarginTypeRight,
-    CJWaterFlowViewMarginTypeColumn, // 每一行
-    CJWaterFlowViewMarginTypeRow, // 每一列
+    CJWaterFlowViewMarginTypeColumn, // 每一行间距
+    CJWaterFlowViewMarginTypeRow, // 每一列间距
 
 }CJWaterFlowViewMarginType; // 间距
 
@@ -26,7 +26,7 @@ typedef enum {
 
 
 // cell所在的索引
-- (CJWaterFlowViewCell *)waterFlowView:(CJWaterFlowView *)waterFlowView cellAtIndex:(NSInteger *)index;
+- (CJWaterFlowViewCell *)waterFlowView:(CJWaterFlowView *)waterFlowView cellAtIndex:(NSInteger)index;
 
 @optional
 // 一共有多少列
@@ -62,4 +62,16 @@ typedef enum {
  *  刷新数据
  */
 - (void)reloadata;
+/**
+ *  通过唯一标识来获取缓存池中的cell
+ *
+ *  @param identifier 标识
+ */
+- (id)dequeueReusableCellWithIdentifier:(NSString *)identifier;
+
+/**
+ *  cell的宽度
+ */
+- (CGFloat)cellWidth;
+
 @end

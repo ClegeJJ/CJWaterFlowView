@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CJWaterFlowViewCell : UIView
-
+@property (nonatomic, copy) NSString *identifier;
 @end
