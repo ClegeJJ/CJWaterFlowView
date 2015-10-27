@@ -8,4 +8,4 @@
 
 横屏~~
 
-![image](https://github.com/ClegeJJ/CJWaterFlowView/master/raw/Image/image2.gif) 
+![image](https://github.com/ClegeJJ/CJWaterFlowView/raw/master/Image/image2.gif) 
