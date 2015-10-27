@@ -57,14 +57,12 @@
 }
 - (void)loadNewShops
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
         // 加载1.plist
         NSArray *newShops = [CJShop objectArrayWithFilename:@"1.plist"];
         [self.shops insertObjects:newShops atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newShops.count)]];
-    });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
         // 刷新瀑布流控件
         [self.waterFlowView reloadata];
         
@@ -75,14 +73,11 @@
 
 - (void)loadMoreShops
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 加载3.plist
         NSArray *newShops = [CJShop objectArrayWithFilename:@"3.plist"];
         [self.shops addObjectsFromArray:newShops];
-    });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         // 刷新瀑布流控件
         [self.waterFlowView reloadata];
